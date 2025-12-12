@@ -7,12 +7,29 @@ const navItems: NavItem[] = [
   { label: 'About Us', href: '#about' },
   { label: 'Practice Areas', href: '#practice-areas' },
   { label: 'Our Team', href: '#team' },
-  { label: 'Case Evaluator', href: '#evaluator' },
   { label: 'Contact', href: '#contact' },
 ];
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (href === '#evaluator') {
+      window.location.hash = 'evaluator';
+      setIsOpen(false);
+      return;
+    }
+
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav className="fixed w-full z-50 bg-primary/95 backdrop-blur-sm text-white border-b border-white/10 shadow-lg">
@@ -21,7 +38,11 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center space-x-2">
             <Scale className="h-8 w-8 text-secondary" />
-            <a href="#home" className="font-serif text-2xl font-bold tracking-wide">
+            <a 
+              href="#home" 
+              onClick={(e) => handleNavClick(e, '#home')}
+              className="font-serif text-2xl font-bold tracking-wide"
+            >
               Alvina <span className="text-secondary">&</span> Associates
             </a>
           </div>
@@ -32,6 +53,7 @@ const Navbar: React.FC = () => {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-gray-300 hover:text-secondary transition-colors duration-200 font-medium text-sm tracking-wide uppercase"
               >
                 {item.label}
@@ -39,6 +61,7 @@ const Navbar: React.FC = () => {
             ))}
             <a
               href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact')}
               className="bg-secondary hover:bg-amber-700 text-white px-5 py-2 rounded-sm transition-colors duration-200 font-bold uppercase text-xs tracking-wider"
             >
               Free Consultation
@@ -66,8 +89,8 @@ const Navbar: React.FC = () => {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md"
-                onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </a>

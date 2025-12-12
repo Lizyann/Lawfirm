@@ -2,6 +2,26 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleEvaluator = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    // Dispatch custom event for reliable opening
+    window.dispatchEvent(new CustomEvent('open-evaluator'));
+    
+    // Also update hash for deep linking support, but don't rely on it exclusively for clicks
+    if (window.location.hash !== '#evaluator') {
+        window.location.hash = 'evaluator';
+    }
+  };
+
   return (
     <div id="home" className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -27,14 +47,16 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-sm text-white bg-secondary hover:bg-amber-700 md:py-4 md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              onClick={(e) => handleScroll(e, 'contact')}
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-sm text-white bg-secondary hover:bg-amber-700 md:py-4 md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
             >
               Request Consultation
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
             <a
               href="#evaluator"
-              className="inline-flex items-center justify-center px-8 py-3 border border-white text-base font-medium rounded-sm text-white hover:bg-white hover:text-primary md:py-4 md:text-lg transition-all duration-300 backdrop-blur-sm"
+              onClick={handleEvaluator}
+              className="inline-flex items-center justify-center px-8 py-3 border border-white text-base font-medium rounded-sm text-white hover:bg-white hover:text-primary md:py-4 md:text-lg transition-all duration-300 backdrop-blur-sm cursor-pointer"
             >
               AI Case Evaluation
             </a>

@@ -16,6 +16,11 @@ export interface Attorney {
   role: string;
   image: string;
   bio: string;
+  socials?: {
+    linkedin?: string;
+    twitter?: string;
+    facebook?: string;
+  };
 }
 
 export interface ChatMessage {
