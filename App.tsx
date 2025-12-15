@@ -9,7 +9,6 @@ import TeamSection from './components/TeamSection';
 import Testimonials from './components/Testimonials';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import { supabase} from './services/supabaseClient';
 
 function App() {
   return (

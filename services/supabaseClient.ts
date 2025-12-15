@@ -34,15 +34,13 @@ import { createClient } from '@supabase/supabase-js';
 // const supabaseUrl = getEnv('SUPABASE_URL');
 // const supabaseAnonKey = getEnv('SUPABASE_ANON_KEY');
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 // const supabaseUrl = getEnv('SUPABASE_URL');
 // const supabaseAnonKey = getEnv('SUPABASE_ANON_KEY');
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
+
 if (!supabaseUrl || !supabaseKey) {
   console.warn('Supabase credentials are missing. Please ensure SUPABASE_URL and SUPABASE_ANON_KEY are set in your .env file.');
 }
