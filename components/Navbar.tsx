@@ -16,12 +16,6 @@ const Navbar: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     
-    if (href === '#evaluator') {
-      window.location.hash = 'evaluator';
-      setIsOpen(false);
-      return;
-    }
-
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     
