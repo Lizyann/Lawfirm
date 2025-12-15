@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           <p>Please read these Terms of Service carefully before you start to use the Website. By using the Website, you accept and agree to be bound and abide by these Terms of Service and our Privacy Policy.</p>
           
           <h5 className="font-bold text-slate-800 text-base mt-4">No Legal Advice or Attorney-Client Relationship</h5>
-          <p>The information contained on this Website is for informational purposes only and does not constitute legal advice. Your use of this Website, including sending information to us via contact forms, email, or the AI Case Evaluator, does not create an attorney-client relationship. You should not act or rely on any information on this Website without seeking the advice of an attorney.</p>
+          <p>The information contained on this Website is for informational purposes only and does not constitute legal advice. Your use of this Website, including sending information to us via contact forms, email, or any other method, does not create an attorney-client relationship. You should not act or rely on any information on this Website without seeking the advice of an attorney.</p>
           
           <h5 className="font-bold text-slate-800 text-base mt-4">Intellectual Property Rights</h5>
           <p>The Website and its entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof) are owned by the Company, its licensors, or other providers of such material and are protected by United States and international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
@@ -80,12 +80,6 @@ const Footer: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     if (href === '#') return;
-    
-    // Kept generic handler but removed explicit #evaluator check as link is removed from UI
-    if (href === '#evaluator') {
-      window.location.hash = 'evaluator';
-      return;
-    }
 
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
