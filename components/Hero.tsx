@@ -10,18 +10,6 @@ const Hero: React.FC = () => {
     }
   };
 
-  const handleEvaluator = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    
-    // Dispatch custom event for reliable opening
-    window.dispatchEvent(new CustomEvent('open-evaluator'));
-    
-    // Also update hash for deep linking support, but don't rely on it exclusively for clicks
-    if (window.location.hash !== '#evaluator') {
-        window.location.hash = 'evaluator';
-    }
-  };
-
   return (
     <div id="home" className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -52,13 +40,6 @@ const Hero: React.FC = () => {
             >
               Request Consultation
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-            <a
-              href="#evaluator"
-              onClick={handleEvaluator}
-              className="inline-flex items-center justify-center px-8 py-3 border border-white text-base font-medium rounded-sm text-white hover:bg-white hover:text-primary md:py-4 md:text-lg transition-all duration-300 backdrop-blur-sm cursor-pointer"
-            >
-              AI Case Evaluation
             </a>
           </div>
         </div>
