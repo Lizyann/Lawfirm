@@ -23,19 +23,6 @@ export interface Attorney {
   };
 }
 
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-  isError?: boolean;
-}
-
-export enum EvaluationStatus {
-  IDLE = 'IDLE',
-  LOADING = 'LOADING',
-  COMPLETE = 'COMPLETE',
-  ERROR = 'ERROR'
-}
-
 export interface Testimonial {
   id: number;
   text: string;
