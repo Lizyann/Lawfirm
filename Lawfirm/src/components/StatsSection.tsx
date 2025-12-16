@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trophy, Users, Scale, History } from 'lucide-react';
-import { Stat } from '../types';
+import { Stat } from '../../types';
 
 const stats: Stat[] = [
   { label: 'Recovered for Clients', value: '$500M+', icon: Trophy },

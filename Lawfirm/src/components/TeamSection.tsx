@@ -1,5 +1,5 @@
 import React from 'react';
-import { Attorney } from '../types';
+import { Attorney } from '../../types';
 import { Linkedin, Twitter, Facebook } from 'lucide-react';
 
 const attorneys: Attorney[] = [

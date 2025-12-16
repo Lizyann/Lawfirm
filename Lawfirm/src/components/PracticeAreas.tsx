@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase, Heart, Scale, ShieldAlert, FileText, Gavel } from 'lucide-react';
-import { PracticeArea } from '../types';
+import { PracticeArea } from '../../types';
 
 const practices: PracticeArea[] = [
   {

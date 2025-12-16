@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Scale } from 'lucide-react';
-import { NavItem } from '../types';
+import { NavItem } from '../../types';
 
 const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
